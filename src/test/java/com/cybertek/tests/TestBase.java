@@ -81,6 +81,6 @@ public class TestBase {
         }
         //Close the driver
         Thread.sleep(1000);
-       Driver.closeDriver();
+     //  Driver.closeDriver();
     }
 }
