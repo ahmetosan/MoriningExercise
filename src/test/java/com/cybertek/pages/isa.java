@@ -8,4 +8,7 @@ public class isa {
         System.out.println("isa guncelledi");
         System.out.println("isa yazdi");
     }
+    public void number(){
+        System.out.println("olur ogle");
+    }
 }
