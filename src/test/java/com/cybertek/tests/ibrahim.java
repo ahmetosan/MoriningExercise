@@ -40,8 +40,8 @@ public class ibrahim extends TestBase {
             result=false;
         }
       Assert.assertTrue(result,"hello");
-
-
+        System.out.println("hello");
+        System.out.println("jsalda");
     }
 
 }
