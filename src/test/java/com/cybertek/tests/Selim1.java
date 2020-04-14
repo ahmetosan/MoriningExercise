@@ -17,6 +17,7 @@ public class Selim1 extends TestBase {
 
     @Test
     public void test1() {
+        //this is new try add
         driver.get(ConfigurationReader.get("qa1_url"));
         LoginPage loginPage = new LoginPage();
         String username = ConfigurationReader.get("storemanager_username");
