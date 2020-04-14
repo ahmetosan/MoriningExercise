@@ -1,22 +1,19 @@
 package com.cybertek.tests;
 
-import com.cybertek.pages.BasePage;
 import com.cybertek.pages.CalendarEventsPage;
 import com.cybertek.pages.DashboardPage;
 import com.cybertek.pages.LoginPage;
 import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.ConfigurationReader;
-import com.cybertek.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Selim1 extends TestBase {
 
     @Test
     public void test1() {
+        //this is new try add
         driver.get(ConfigurationReader.get("qa1_url"));
         LoginPage loginPage = new LoginPage();
         String username = ConfigurationReader.get("storemanager_username");
