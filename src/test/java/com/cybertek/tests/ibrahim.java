@@ -11,37 +11,59 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class ibrahim extends TestBase {
     @Test
-    public void test1() {
+    public void test2() {
         driver.get(ConfigurationReader.get("qa1_url"));
-        LoginPage loginPage = new LoginPage();
 
-        String username = ConfigurationReader.get("storemanager_username");
-        String password = ConfigurationReader.get("storemanager_password");
-        loginPage.login(username, password);
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(ConfigurationReader.get("storemanager_username"), ConfigurationReader.get("storemanager_password"));
+
         ContactsPage contactsPage = new ContactsPage();
         contactsPage.navigateToModule("Activities", "Calendar Events");
+        BrowserUtils.waitFor(2);
         CalendarEventsPage calendarEventsPage = new CalendarEventsPage();
         calendarEventsPage.waitUntilLoaderScreenDisappear();
-        action.moveToElement(calendarEventsPage.threeDot).perform();
-        BrowserUtils.waitFor(2);
-        WebElement View = driver.findElement(By.xpath("//tr[contains(.,'Testers Meeting')]/td[contains(.,'...')]/div/div/ul/li/ul/li[1]"));
-        WebElement Edit = driver.findElement(By.xpath("//tr[contains(.,'Testers Meeting')]/td[contains(.,'...')]/div/div/ul/li/ul/li[2]"));
-        WebElement Delete = driver.findElement(By.xpath("//tr[contains(.,'Testers Meeting')]/td[contains(.,'...')]/div/div/ul/li/ul/li[3]"));
-        System.out.println(View.isEnabled());
-        System.out.println(Edit.isEnabled());
-        System.out.println(Delete.isEnabled());
-        BrowserUtils.waitFor(2);
-        boolean result;
-        if(View.isEnabled() && Edit.isEnabled()&& Delete.isEnabled()){
-            result=true;
-        }else{
-            result=false;
+
+        WebElement getSetting = driver.findElement(By.xpath("//a[@title='Grid Settings']"));
+        getSetting.click();
+
+//        for (int i = 2; i <= 7 ; i++) {
+//            WebElement calendar = driver.findElement(By.xpath("//tr[@class='renderable']["+i+"]/td[3]"));
+//            calendar.click();
+//            BrowserUtils.waitFor(2);
+//        }
+        List<WebElement> elements = driver.findElements(By.xpath("//tr[@class='renderable']/td[3]"));
+        for (int i = 0; i <8 ; i++) {
+            elements.get(i).click();
         }
-      Assert.assertTrue(result,"hello");
-        System.out.println("hello");
-        System.out.println("jsalda");
+        WebElement Displayed = driver.findElement(By.xpath("//tr[@class='renderable'][1]/td[3]"));
+        Assert.assertTrue(Displayed.isEnabled());
     }
 
 }
+
+//
+//
+//
+//
+//
+//
+
+//
+////        for (int i = 2; i <= 7 ; i++) {
+////            WebElement calendar = driver.findElement(By.xpath("//tr[@class='renderable']["+i+"]/td[3]"));
+////            calendar.click();
+////            BrowserUtils.waitFor(2);
+////        }
+//        List<WebElement> elements = driver.findElements(By.xpath("//tr[@class='renderable']/td[3]"));
+//        for (int i = 1; i <8 ; i++) {
+//            elements.get(i).click();
+//        }
+//        WebElement Displayed = driver.findElement(By.xpath("//tr[@class='renderable'][1]/td[3]"));
+//        Assert.assertTrue(Displayed.isEnabled());
+//    }
+//
+//}
