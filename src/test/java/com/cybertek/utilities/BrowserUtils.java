@@ -25,6 +25,8 @@ import org.testng.Assert;
 
 
 public class BrowserUtils {
+
+
     /*
      * takes screenshot
      * @param name
@@ -43,6 +45,8 @@ public class BrowserUtils {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
+
+
 
     /**
      * Switches to new window by the exact title. Returns to original window if target title not found
